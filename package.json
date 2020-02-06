@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "test": "webpack --config webpack.test.js",
-    "dev": "webpack-dev-server --config webpack.dev.js --open"
+    "dev": "webpack-dev-server --config webpack.dev.js --open",
+    "dll": "webpack --config webpack.dll.js"
   },
   "keywords": [],
   "author": "",
