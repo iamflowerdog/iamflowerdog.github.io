@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Search extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div className="search-text" >
@@ -12,6 +12,6 @@ class Search extends React.Component {
 }
 
 ReactDOM.render(
-  <Search />,
+  <Home />,
   document.getElementById('root')
 )
