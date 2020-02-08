@@ -4,7 +4,8 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     library: [
-      'react'
+      'react',
+      'antd'
     ]
   },
   output: {

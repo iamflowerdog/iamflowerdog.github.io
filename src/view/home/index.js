@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Layout, Menu, Icon, Breadcrumb, Row, Col, Statistic, Button, Input, Form } from 'antd';
 // import '../../common/common';
 import './index.less';
+import * as axios from '../../lib/axios';
 
 const { Header, Sider, Content } = Layout;
 const { Countdown } = Statistic;
@@ -26,6 +27,11 @@ class Home extends React.Component {
   toggle() {
     this.setState({
       collapsed: !this.state.collapsed
+    })
+  }
+  componentDidMount() {
+    axios.get('/console/room/statistics?id=89').then(res => {
+
     })
   }
   render() {
@@ -118,6 +124,17 @@ class SearchForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       console.log('Received values of form: ', values);
+      let options = {
+        'discount': '',
+        'floorId': 0,
+        'name': '',
+        'page': 1,
+        'rows': 30,
+      }
+      axios.post('/console/room/price', options).then(res => {
+
+      })
+
     });
   }
   render() {
@@ -133,7 +150,7 @@ class SearchForm extends React.Component {
               {getFieldDecorator('name', {
                 rules: [
                   {
-                    required: true,
+                    required: false,
                     message: 'Input something!',
                   },
                 ]
