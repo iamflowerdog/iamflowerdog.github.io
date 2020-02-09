@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Layout, Menu, Icon, Breadcrumb, Row, Col, Statistic, Button, Input, Form } from 'antd';
+import { Layout, Menu, Icon, Breadcrumb, Row, Col, Statistic, Button, Input, Form, Table} from 'antd';
 // import '../../common/common';
 import './index.less';
 import * as axios from '../../lib/axios';
@@ -15,10 +15,12 @@ class Home extends React.Component {
     super(props);
     this.state = {
       greeting: '登陆',
-      collapsed: false
+      collapsed: false,
+      dataSource: []
     };
     this.handleClick = this.handleClick.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.fetchList = this.fetchList.bind(this);
   }
   handleClick() {
     console.log(this);
@@ -29,12 +31,54 @@ class Home extends React.Component {
       collapsed: !this.state.collapsed
     })
   }
+  fetchList (that) {
+    that.props.form.validateFields((err, values) => {
+      console.log('Received values of form: ', values);
+      let options = {
+        'discount': '',
+        'floorId': 0,
+        'name': '',
+        'page': 1,
+        'rows': 30,
+      }
+      axios.post('/console/room/price', options).then(res => {
+        if (res.success) {
+          this.setState({
+            dataSource: res.data.list
+          })
+        }
+      })
+
+    });
+  }
   componentDidMount() {
     axios.get('/console/room/statistics?id=89').then(res => {
 
     })
   }
   render() {
+    const columns = [
+      {
+        title: '编号',
+        dataIndex: 'name'
+      },
+      {
+        title: '所属项目',
+        dataIndex: 'projectName'
+      },
+      {
+        title: '房源类型',
+        dataIndex: 'typeName'
+      },
+      {
+        title: '房源状态',
+        dataIndex: 'leaseStatusName'
+      },
+      {
+        title: '房间原价',
+        dataIndex: 'originalPrice'
+      },
+    ];
     return (
       <div className="home" >
         <Layout>
@@ -43,15 +87,15 @@ class Home extends React.Component {
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">
                 <Icon type="user" />
-                <span>nav 1</span>
+                <span>空间管理</span>
               </Menu.Item>
               <Menu.Item key="2">
                 <Icon type="video-camera" />
-                <span>nav 2</span>
+                <span>项目管理</span>
               </Menu.Item>
               <Menu.Item key="3">
                 <Icon type="upload" />
-                <span>nav 3</span>
+                <span>房源管理</span>
               </Menu.Item>
             </Menu>
           </Sider>
@@ -102,7 +146,19 @@ class Home extends React.Component {
                   <Countdown title="Day Level" value={deadline} format="D 天 H 时 m 分 s 秒" />
                 </Col>
               </Row>
-              <WrappedSearchForm/>
+              <WrappedSearchForm onChange={this.fetchList}/>
+              <Row style={{
+                marginBottom: 24,
+                background: '#fff',
+              }}>
+                <div className="house-header">
+                  <div className="header-title">查询表格</div>
+                  <div className="header-option">
+                    <Button type="primary">操作</Button>
+                  </div>
+                </div>
+                <Table rowKey={(row) => row.id} columns={columns} rowSelection={{}} dataSource={this.state.dataSource}/>
+              </Row>
             </Content>
           </Layout>
         </Layout>
@@ -122,20 +178,14 @@ class SearchForm extends React.Component {
   }
   handleSearch(e) {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      console.log('Received values of form: ', values);
-      let options = {
-        'discount': '',
-        'floorId': 0,
-        'name': '',
-        'page': 1,
-        'rows': 30,
-      }
-      axios.post('/console/room/price', options).then(res => {
-
-      })
-
-    });
+    if (this.props.onChange) {
+      this.props.onChange(this);
+    }
+  }
+  componentDidMount() {
+    if (this.props.onChange) {
+      this.props.onChange(this);
+    }
   }
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -143,6 +193,7 @@ class SearchForm extends React.Component {
       <Form className="ant-advanced-search-form" onSubmit={this.handleSearch}>
         <Row style={{
           padding: 24,
+          marginBottom: 24,
           background: '#fff',
         }}>
           <Col span={8}>
