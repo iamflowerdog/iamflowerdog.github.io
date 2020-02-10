@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const baseURL = 'https://testepms.epark.com/api'; // 这里是测试的请求url
+import baseURL from './baseURL';
 
 axios.interceptors.request.use(
   config => {

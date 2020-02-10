@@ -16,7 +16,7 @@ class App extends React.Component {
   }
   handleClick () {
     console.log(this);
-    window.open('/home.html', '_self');
+    window.location.href = './home.html';
   }
   render() {
     return (

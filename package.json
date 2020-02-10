@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "test": "webpack --config webpack.test.js",
+    "build": "npm run dll && webpack --config webpack.prod.js",
+    "test": "npm run dll && webpack --config webpack.test.js",
     "dev": "webpack-dev-server --config webpack.dev.js --open",
     "dll": "webpack --config webpack.dll.js"
   },
