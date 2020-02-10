@@ -10,3 +10,16 @@
 4. 打包测试版本 `npm run test`
 5. 打包线上版本 `npm run build`
 
+#### 项目结构目录
+
+```
+    │
+    ├── src/       
+    │   ├── lib/  工具 
+    │   │   ├── axios/ axios请求工具
+    │   │   ├── baseURL/ 区分生产测试开发
+    │   ├── view/  页面/存放所有html页面
+    │   │   ├── inxe/ 入口登陆
+    │   │   ├── home/ 首页
+    
+```
