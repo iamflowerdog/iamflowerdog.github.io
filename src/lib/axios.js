@@ -3,7 +3,7 @@ import baseURL from './baseURL';
 
 axios.interceptors.request.use(
   config => {
-    config.headers['x-auth-token'] = 'e2e46217-6fc9-45a3-92f5-aec71df06586';
+    config.headers['x-auth-token'] = '';
     config.baseURL = baseURL
     return config
   },
