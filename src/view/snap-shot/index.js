@@ -16,8 +16,12 @@ class SnapShot extends PureComponent {
   componentDidMount() {
     for (let i = 0; i < 20; i++) this.handleNewMessage();
     this.timerId = window.setInterval(() => {
+      if (this.state.messages.length > 30) {
+        window.clearInterval(this.interval);
+        return;
+      }
       this.handleNewMessage(1);
-    }, 2000)
+    }, 1000)
   }
   componentWillUnmount() {
     window.clearInterval(this.interval);
