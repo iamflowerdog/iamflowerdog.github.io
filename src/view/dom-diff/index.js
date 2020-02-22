@@ -142,7 +142,7 @@ class App extends React.Component {
           <button onClick={() => this.myRender('shape4')}>Shape 3</button>
           <button onClick={() => this.myRender('shape5')}>Shape 3</button>
           <button onClick={() => this.myRender('shape6')}>Shape 3</button>
-          <a href="https://sprit.vip/dist/dom-diff.html" style="margin-left: 20px; font-size: 12px; color: red;">Fork me</a>
+          <a href="https://sprit.vip" style={{marginLeft: "20px", fontSize: "12px", color: "red"}}>Fork me</a>
         </div>
         <Wrapper shape={this.state.shape} />
       </div>
