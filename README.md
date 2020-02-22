@@ -1,7 +1,7 @@
 ## 2月3日 - 2月5日 疫情间工作任务（利用antd搭建EPMS主页面）
 
-#### 技术选型
-* react antd webpack
+#### demo地址
+* [snap-shot](https://sprit.vip/dist/snap-shot.html)
 
 #### 启动项目
 1. clone 项目到本地 `git clone https://github.com/iamflowerdog/epms-antd`
