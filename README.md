@@ -1,7 +1,10 @@
 ## 2月3日 - 2月5日 疫情间工作任务（利用antd搭建EPMS主页面）
 
 #### demo地址
-* [snap-shot](https://sprit.vip/dist/snap-shot.html)
+* 学习react的新方法 getSnapshotBeforeUpdate [snap-shot](https://sprit.vip/dist/snap-shot.html)
+* 学习react的生命周期 [snap-shot](https://sprit.vip/dist/clock.html)
+* 学习react的虚拟dom及key属性 getSnapshotBeforeUpdate [snap-shot](https://sprit.vip/dist/dom-diff.html)
+* 利用antd搭建一个企业后台项目 getSnapshotBeforeUpdate [snap-shot](https://sprit.vip/dist/index.html)
 
 #### 启动项目
 1. clone 项目到本地 `git clone https://github.com/iamflowerdog/epms-antd`
