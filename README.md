@@ -1,5 +1,7 @@
 ## 2月3日 - 2月5日 疫情间工作任务（利用antd搭建EPMS主页面）
 
+## flow me   
+* [我的github主页](https://github.com/iamflowerdog)
 #### demo地址
 * 学习react的新方法 getSnapshotBeforeUpdate [snap-shot](https://sprit.vip/dist/snap-shot.html)
 * 学习react的生命周期 [clock](https://sprit.vip/dist/clock.html)
