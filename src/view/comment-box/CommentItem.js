@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-export default class Comment extends PureComponent {
+export default class CommentItem extends PureComponent {
   static propTypes = {
     comment: PropTypes.object.isRequired
   };
