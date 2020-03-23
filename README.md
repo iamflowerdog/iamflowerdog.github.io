@@ -7,7 +7,7 @@
 * 学习react的生命周期 [clock](https://sprit.vip/dist/clock.html)
 * 学习react的虚拟dom及key属性 getSnapshotBeforeUpdate [dom-diff](https://sprit.vip/dist/dom-diff.html)
 * 利用antd搭建一个企业后台项目 getSnapshotBeforeUpdate [首页](https://sprit.vip/dist/index.html)
-
+* 高阶组件和函数作为自组件 [HOC](https://sprit.vip/dist/advanced-tab.html)
 #### 启动项目
 1. clone 项目到本地 `git clone https://github.com/iamflowerdog/epms-antd`
 2. 进入项目 `npm install`
