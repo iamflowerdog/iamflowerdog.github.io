@@ -97,7 +97,7 @@ class AdvancedTabSelectorSample extends PureComponent {
           onChange={p => this.setState({person: p})}
         >
           {person => (
-            <img width="100px" src={require(`../../images/${person}.png`)} />
+            <img width="100px" src={require(`../../images/${person}.jpeg`)} />
           )}
         </AdvancedSelector>
         <br />
