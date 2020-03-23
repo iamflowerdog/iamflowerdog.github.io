@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
+import withTimer from '../HOC/withTimer';
 import "./index.less";
 
 export default class TabSelector extends PureComponent {
@@ -44,8 +45,7 @@ const options = [
   { name: "Blue", value: "blue" },
   { name: "Orange", value: "orange" }
 ];
-
-export class TabSelectorSample extends PureComponent {
+class TabSelectorSample extends PureComponent {
   state = {
     color: null
   };
@@ -58,12 +58,19 @@ export class TabSelectorSample extends PureComponent {
           value={this.state.color}
           onChange={c => this.setState({ color: c })}
         />
+        <br/>
+        <br/>
+        <br/>
+        <hr/>
+        {this.props.time.toLocaleString()}
       </div>
     );
   }
 }
 
+const App = withTimer(TabSelectorSample);
+
 ReactDOM.render(
-  <TabSelectorSample />,
+  <App />,
   document.getElementById('root')
 )
