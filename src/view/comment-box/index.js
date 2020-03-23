@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CommentList from "./CommentList";
+import CommentForm from "./CommentForm";
+import "./index.less";
 
-import './index.less';
+const comments = [
+  {
+    author: "Nate",
+    content: "Hello React! This is a sample comment.",
+  },
+  { author: "Kevin", content: "Hello Redux!" },
+  { author: "Bood", content: "Hello Rekit!" },
+];
 
-class CommentBox extends React.Component {
+export class CommentBox extends React.PureComponent {
+  state = {
+    comment: '123'
+  }
   render() {
     return (
-      <div>
-        <h1>Comments </h1>
+      <div className="comment-box">
+        <h1>Comments ({comments.length})</h1>
+        <CommentList comments={comments} />
+        <CommentForm comment={this.state.comment} />
       </div>
-    )
+    );
   }
 }
 
